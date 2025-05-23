@@ -20,7 +20,8 @@ import java.util.Scanner;
             System.out.println("2. Centro del grafo");
             System.out.println("3. Cambiar clima actual");
             System.out.println("4. Mostrar matriz de distancias");
-            System.out.println("5. Salir");
+            System.out.println("5. Agregar nueva conexión");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
 
             int opcion = sc.nextInt();
@@ -59,6 +60,22 @@ import java.util.Scanner;
                     grafo.mostrarMatriz();
                     break;
                 case 5:
+                    System.out.println("Agregar la ciudad de partida: ");
+                    String ciudadInicio = sc.nextLine();
+                    System.out.println("Agregar la ciudad de llegada: ");
+                    String ciudadFin = sc.nextLine();
+                    System.out.println("Agregar la distancia en clima normal: ");
+                    double distanciaNormal = sc.nextDouble();
+                    System.out.println("Agregar la distancia en clima con lluvia: ");
+                    double distanciaLluvia = sc.nextDouble();
+                    System.out.println("Agregar la distancia en clima con nieve: ");
+                    double distanciaNieve = sc.nextDouble();
+                    System.out.println("Agregar la distancia en clima con tormenta: ");
+                    double distanciaTormenta = sc.nextDouble();
+
+                    grafo.agregarConexion(ciudadInicio, ciudadFin, distanciaNormal, distanciaLluvia, distanciaNieve, distanciaTormenta);
+                    break;
+                case 6:
                     System.out.println("Programa finalizado.");
                     return;
                 default:

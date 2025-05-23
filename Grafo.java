@@ -124,6 +124,21 @@ public class Grafo {
             System.out.println();
         }
     }
+
+    public void agregarConexion(String ciudad1, String ciudad2, double pesoNormal, double pesoLluvia, double pesoNieve, double pesoTormenta) {
+        if (!indiceCiudad.containsKey(ciudad1)) agregarCiudad(ciudad1);
+        if (!indiceCiudad.containsKey(ciudad2)) agregarCiudad(ciudad2);
+
+        int i = indiceCiudad.get(ciudad1);
+        int j = indiceCiudad.get(ciudad2);
+
+        matrizPesos[0][i][j] = pesoNormal;
+        matrizPesos[1][i][j] = pesoLluvia;
+        matrizPesos[2][i][j] = pesoNieve;
+        matrizPesos[3][i][j] = pesoTormenta;
+        
+        aplicarFloyd();
+    }
 }
 
 enum Clima {
